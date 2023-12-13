@@ -1,0 +1,62 @@
+<main>
+  @if(!listaVacia){
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-outline-primary btn-sm mb-4" routerLink="/dashboard/cita-nueva"><i class="fas fa-plus"></i> Nueva</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Mascota</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (cita of citas; track $index) {
+                <tr>
+                  <td>{{cita.id}}</td>
+                  <td>{{cita.nombre_paciente}}</td>
+                  <td>{{cita.nombre_mascota}}</td>
+                  <td>{{cita.fecha}}</td>
+                  <td>{{cita.hora}}</td>
+                  <td>
+                    <button routerLink="/dashboard/cita-editar/{{cita.id}}">
+                      <span class="text-warning">Editar</span>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="cita.id !== undefined ? borrar(cita.id.toString()) : null">
+                      <span class="text-danger" >Eliminar</span>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  }@else {
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-outline-primary btn-sm" routerLink="/dashboard/cita-nueva"><i class="fas fa-plus"></i> Nueva</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="p-3 mb-2 text-center"><h2>{{listaVacia}}</h2></div>
+        </div>
+      </div>
+    </div>
+  }
+</main>

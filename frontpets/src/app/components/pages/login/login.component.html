@@ -1,0 +1,48 @@
+<br>
+<div class="container d-flex justify-content-center align-items-center mt-4">
+<form class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+  <div class="d-flex justify-content-center">
+      <img src="assets/images/logo.jpg" alt="login-icon" style="height: 7rem" />
+  </div>
+  <div class="text-center fs-1 fw-bold mt-4">Iniciar</div>
+  <div class="input-group mt-4">
+      <div class="input-group-text bg-dark"></div>
+      <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" autocomplete="off"
+      formControlName="nombreUsuario"
+       placeholder="Usuario">
+  </div>
+  <div class="input-group mt-1">
+      <div class="input-group-text bg-dark"></div>
+      <input type="password" class="form-control" name="password" id="password" required
+      formControlName="password"
+      placeholder="Contraseña">
+  </div>
+  <div class="d-flex justify-content-around mt-1">
+      <div class="d-flex align-items-center gap-1">
+          <input class="form-check-input" type="checkbox" />
+          <div class="pt-1" style="font-size: 0.9rem">Recordarme</div>
+      </div>
+      <div class="pt-1">
+          <a class="text-decoration-none text-info fw-semibold fst-italic"
+              style="font-size: 0.9rem">¿Olvidaste tu contraseña?</a>
+      </div>
+  </div>
+  <button [disabled]="loginForm.invalid" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm" type="submit">
+    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+  </button>
+  <div class="d-flex gap-1 justify-content-center mt-1">
+      <div>No tienes ninguna contraseña?</div>
+      <a routerLink="/pages/register" class="text-decoration-none text-info fw-semibold">Registrate</a>
+  </div>
+  <div class="p-3">
+      <div class="border-bottom text-center" style="height: 0.9rem">
+          <span class="bg-white px-3">O</span>
+      </div>
+  </div>
+</form>
+</div>
+<br><br><br>
+
+
+
+

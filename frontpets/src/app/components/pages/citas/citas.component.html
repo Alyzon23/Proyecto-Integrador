@@ -1,0 +1,109 @@
+@if(!isLogged){
+  <div class="mt-4 d-flex justify-content-center">
+    <div class="text-center">
+      <h1>Por favor Iniciar primero</h1>
+      <button class="btn btn-danger" routerLink="/pages/login">Iniciar</button>
+    </div>
+  </div>
+}@else{
+  <div class="container-fluid mt-3 mb-4 d-flex justify-content-center aling-items-center">
+    <form class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 70%;" [formGroup]="citasForm" (ngSubmit)="onSubmit()" >
+      <h1 class="text-center text-info fs-1 fw-bold">Agenda tu Cita</h1>
+      <div class="text-center mb-4">
+        <img src="assets/images/logo.jpg" alt="login-icon" style="max-height: 7rem;" />
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="mb-4 text-info">Datos Personales</h3>
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre_paciente" name="nombre_paciente" required autocomplete="off"
+            formControlName="nombre_paciente"
+            >
+          </div>
+          <div class="form-group">
+            <label for="apellido">Nombre de la Mascota</label>
+            <input type="text" class="form-control" id="nombre_mascota" name="nombre_mascota"  required autocomplete="off"
+            formControlName="nombre_mascota"
+            >
+          </div>
+          <div class="form-group">
+            <label for="fecha_nacimiento">Fecha de Nacimiento de la Mascota</label>
+            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required autocomplete="off"
+            formControlName="fecha_nacimiento"
+            >
+          </div>
+          <div class="form-group">
+            <label for="especie">Especie</label>
+            <input type="text" class="form-control" id="especie" name="especie"  required autocomplete="off"
+            formControlName="especie"
+            >
+          </div>
+          <div class="form-group">
+            <label for="raza">Raza</label>
+            <input type="text" class="form-control" id="raza" name="raza"  required autocomplete="off"
+            formControlName="raza"
+            >
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha de la Cita</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required autocomplete="off"
+            formControlName="fecha"
+            >
+          </div>
+          <div class="form-group">
+            <label for="motivo">Motivo de la cita</label>
+            <textarea class="form-control" id="motivo" name="motivo" required autocomplete="off"
+            formControlName="motivo"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3 class="mb-4 text-info">Horarios</h3>
+          <div class="form-group">
+            <label for="hora">Hora de la cita</label>
+            <select class="form-control" id="hora" name="hora"
+            formControlName="hora"
+            >
+              <option value="">Seleccione ></option>
+              <optgroup label="Mañana">
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="9:30 AM">9:30 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="11:30 AM">11:30 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="12:30 PM">12:30 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+              </optgroup>
+              <optgroup label="Tarde">
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="2:30 PM">2:30 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="3:30 PM">3:30 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="4:30 PM">4:30 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+              </optgroup>
+            </select>
+            </div>
+          </div>
+        </div>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-outline-info btn-block">
+           Agendar
+          </button>
+        </div>
+        <div class="col-md-6">
+          <button routerLink="/" class="btn btn-outline-dark btn-block">
+            Volver
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+}
+
+
